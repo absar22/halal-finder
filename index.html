@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Meta tags to define character encoding and responsive layout -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Webpage title shown in the browser tab -->
+    <title>Halal Ingredient Analyzer</title>
+    
+    <!-- Linking external CSS file for styling -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- ================================
+         Main Container Starts Here
+         ================================ -->
+    <div class="container">
+        <!-- Main heading of the app -->
+        <h1>Halal Ingredient Analyzer</h1>
+
+        <!-- Section for entering barcode and button to check status -->
+        <div class="input-section">
+            <input type="text" id="barcodeInput" placeholder="Enter product barcode (e.g., 8904004400779)">
+            <button id="checkButton">Check Halal Status</button>
+        </div>
+
+        <!-- Message areas for error and loading states -->
+        <p id="errorMessage" class="message error"></p>
+        <p id="loadingMessage" class="message loading"></p>
+
+        <!-- Section where the product info will appear after scanning -->
+        <div id="productResult" class="product-result">
+            <!-- Product name will be inserted here -->
+            <h2 id="productName"></h2>
+            
+            <!-- Product image (hidden by default until loaded) -->
+            <img id="productImage" src="" alt="Product Image" class="product-image">
+            
+            <!-- Product brand name -->
+            <p id="productBrand"></p>
+
+            <!-- Halal status text -->
+            <h3>Halal Status: <span id="halalStatusText"></span></h3>
+
+            <!-- Ingredients that may be doubtful or haram -->
+            <p id="problematicIngredientsText" class="warning-text"></p>
+
+            <!-- List of ingredients -->
+            <h4>Ingredients:</h4>
+            <div id="ingredientsText" class="ingredients-box"></div>
+
+            <!-- Additives (E-numbers), shown only if present -->
+            <h4 id="additivesTitle" style="display: none;">Additives (E-Numbers):</h4>
+            <p id="additivesText"></p>
+
+            <!-- Labels like “Halal” or “Organic” if detected -->
+            <h4 id="labelsTitle" style="display: none;">Labels:</h4>
+            <p id="labelsText"></p>
+        </div>
+
+        <!-- Disclaimer to inform users this is not an official halal certificate -->
+        <p class="disclaimer">
+            <strong>Disclaimer:</strong> This app gives basic information using public food data and general Halal rules. 
+            It is <strong>not official Halal certification</strong>. Always double-check with trusted sources and look for real Halal logos on the product to be sure.
+        </p>
+    </div>
+    <!-- ================ End of Main Container ================ -->
+
+
+    <!-- ===============================
+         Islamic Section for Quote & Image
+         =============================== -->
+    <div class="islamic-section">
+
+         <!-- Islamic calligraphy image (Bismillah) -->
+        <img src='https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse3.mm.bing.net%2Fth%2Fid%2FOIP.xbnfIG2Qs_1p-PHthvBbTgAAAA%3Fpid%3DApi&f=1&ipt=436eb64a2807daf485a0bc6f727d2e1998f072405e86220442677687c6b62eff&ipo=images'
+             alt="Bismillah" 
+             class="islamic-image">
+        <!-- Islamic quote to remind about Halal eating -->
+        <h2>📖 Islamic Reminder</h2>
+        <blockquote class="islamic-quote">
+            “Eat of the good things which We have provided for you.”<br>
+            <strong>— Quran 2:172</strong>
+        </blockquote>
+
+       
+    </div>
+    <!-- ================ End of Islamic Section ================ -->
+
+
+    <!-- Link to external JavaScript file where logic like API calls happens -->
+    <script src="script.js"></script>
+
+</body>
+</html>
