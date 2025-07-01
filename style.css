@@ -176,3 +176,60 @@ button:disabled {
     margin-top: 15px;
     border-radius: 10px;
 }
+
+
+/* ======== Responsive Styling for Mobile ======== */
+@media (max-width: 600px) {
+    body {
+        padding: 10px;
+        align-items: stretch; /* Allow full width scroll if needed */
+    }
+
+    .container {
+        padding: 20px;
+        border-radius: 0;
+        box-shadow: none;
+    }
+
+    .input-section {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    input[type="text"],
+    button {
+        width: 100%;
+        font-size: 1em;
+    }
+
+    h1, h2, h3, h4 {
+        font-size: 1.5em;
+        margin-bottom: 15px;
+    }
+
+    .product-image {
+        max-width: 100%;
+        margin-bottom: 10px;
+    }
+
+    .ingredients-box {
+        font-size: 0.9em;
+        padding: 10px;
+    }
+
+    .islamic-image {
+        max-width: 100%;
+    }
+
+    .islamic-quote {
+        font-size: 1em;
+    }
+
+    .disclaimer {
+        font-size: 0.75em;
+    }
+
+    #halalStatusText {
+        font-size: 1em;
+    }
+}
