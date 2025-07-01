@@ -1,53 +1,47 @@
-/* ======== Overall Page Styling ======== */
 body {
-    font-family: Arial, sans-serif; /* Sets a clean, readable font */
-    background-color: #f4f7f6; /* Light gray background */
-    color: #333; /* Dark gray text */
+    font-family: Arial, sans-serif;
+    background-color: #f4f7f6;
+    color: #333;
     margin: 0;
     padding: 20px;
     display: flex;
-    justify-content: center; /* Center content horizontally */
-    align-items: flex-start; /* Align content to the top */
-    min-height: 100vh; /* Make sure body takes at least full height */
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
 }
 
-/* ======== Container Styling ======== */
 .container {
-    background-color: #fff; /* White background for the container */
+    background-color: #fff;
     padding: 30px;
-    border-radius: 8px; /* Rounded corners */
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
     max-width: 700px;
     width: 100%;
 }
 
-/* ======== Headings Styling ======== */
 h1, h2, h3, h4 {
-    color: #2c3e50; /* Dark blue-gray color */
+    color: #2c3e50;
     text-align: center;
     margin-bottom: 20px;
 }
 
-/* ======== Input Section Layout ======== */
 .input-section {
     display: flex;
-    gap: 10px; /* Space between input and button */
+    gap: 10px;
     margin-bottom: 25px;
 }
 
-/* ======== Text Input Styling ======== */
 input[type="text"] {
-    flex-grow: 1; /* Make input take up remaining space */
+    flex-grow: 1;
     padding: 12px;
     border: 1px solid #ddd;
     border-radius: 5px;
     font-size: 1em;
 }
 
-/* ======== Button Styling ======== */
 button {
     padding: 12px 25px;
-    background-color: #28a745; /* Green */
+    background-color: #28a745;
     color: white;
     border: none;
     border-radius: 5px;
@@ -57,15 +51,14 @@ button {
 }
 
 button:hover {
-    background-color: #218838; /* Darker green on hover */
+    background-color: #218838;
 }
 
 button:disabled {
-    background-color: #cccccc; /* Gray when disabled */
+    background-color: #cccccc;
     cursor: not-allowed;
 }
 
-/* ======== Message Box Styling ======== */
 .message {
     text-align: center;
     margin-bottom: 15px;
@@ -73,29 +66,25 @@ button:disabled {
     border-radius: 5px;
 }
 
-/* Error message style */
 .message.error {
     background-color: #f8d7da;
     color: #721c24;
     border: 1px solid #f5c6cb;
 }
 
-/* Loading/success message style */
 .message.loading {
     background-color: #d4edda;
     color: #155724;
     border: 1px solid #c3e6cb;
 }
 
-/* ======== Product Result Styling ======== */
 .product-result {
     border-top: 1px solid #eee;
     padding-top: 20px;
     margin-top: 20px;
-    display: none; /* Hidden by default until product is found */
+    display: none; /* Hidden by default */
 }
 
-/* Product Image Styling */
 .product-image {
     max-width: 150px;
     height: auto;
@@ -105,18 +94,15 @@ button:disabled {
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
-/* Halal status text styling */
 #halalStatusText {
     font-weight: bold;
     font-size: 1.2em;
 }
 
-/* Color-coded Halal status classes */
-.status-haram { color: #dc3545; }     /* Red for haram */
-.status-mushbooh { color: #ffc107; }  /* Yellow for mushbooh */
-.status-halal { color: #28a745; }     /* Green for halal */
+.status-haram { color: #dc3545; } /* Red */
+.status-mushbooh { color: #ffc107; } /* Orange/Yellow */
+.status-halal { color: #28a745; } /* Green */
 
-/* Problematic ingredient warning text */
 .warning-text {
     color: #d64d00;
     font-weight: bold;
@@ -124,7 +110,6 @@ button:disabled {
     margin-top: 10px;
 }
 
-/* Ingredient list styling */
 .ingredients-box {
     background-color: #f9f9f9;
     border: 1px solid #eee;
@@ -134,15 +119,13 @@ button:disabled {
     font-size: 0.95em;
 }
 
-/* Highlight specific ingredients in yellow */
 .ingredients-box span.highlight {
-    background-color: #ffeb3b;
+    background-color: #ffeb3b; /* Yellow for highlighting */
     font-weight: bold;
     padding: 2px 0;
     border-radius: 2px;
 }
 
-/* ======== Disclaimer Styling ======== */
 .disclaimer {
     font-size: 0.8em;
     color: #777;
@@ -150,86 +133,4 @@ button:disabled {
     border-top: 1px dashed #eee;
     padding-top: 15px;
     text-align: center;
-}
-
-/* ======== Islamic Reminder Section ======== */
-.islamic-section {
-    margin-top: 40px;
-    padding: 20px;
-    border-top: 2px solid #ccc;
-    text-align: center;
-    background-color: #f9f9f9;
-    border-radius: 12px;
-}
-
-/* Styling for the quote */
-.islamic-quote {
-    font-style: italic;
-    font-size: 1.2em;
-    color: #2c3e50;
-    margin: 15px 0;
-}
-
-/* Islamic image styling */
-.islamic-image {
-    max-width: 300px;
-    margin-top: 15px;
-    border-radius: 10px;
-}
-
-
-/* ======== Responsive Styling for Mobile ======== */
-@media (max-width: 600px) {
-    body {
-        padding: 10px;
-        align-items: stretch; /* Allow full width scroll if needed */
-    }
-
-    .container {
-        padding: 20px;
-        border-radius: 0;
-        box-shadow: none;
-    }
-
-    .input-section {
-        flex-direction: column;
-        gap: 10px;
-    }
-
-    input[type="text"],
-    button {
-        width: 100%;
-        font-size: 1em;
-    }
-
-    h1, h2, h3, h4 {
-        font-size: 1.5em;
-        margin-bottom: 15px;
-    }
-
-    .product-image {
-        max-width: 100%;
-        margin-bottom: 10px;
-    }
-
-    .ingredients-box {
-        font-size: 0.9em;
-        padding: 10px;
-    }
-
-    .islamic-image {
-        max-width: 100%;
-    }
-
-    .islamic-quote {
-        font-size: 1em;
-    }
-
-    .disclaimer {
-        font-size: 0.75em;
-    }
-
-    #halalStatusText {
-        font-size: 1em;
-    }
 }
