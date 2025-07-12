@@ -1,78 +1,72 @@
-/* === Page Layout and Background === */
+/* === General Layout === */
 body {
     font-family: Arial, sans-serif;
-    background-color: #f4f7f6; /* Light gray background */
-    color: #333; /* Dark gray text */
+    background-color: #f4f7f6;
+    color: #333;
     margin: 0;
     padding: 20px;
-    display: flex; /* Center the container horizontally */
+    display: flex;
     justify-content: center;
     align-items: flex-start;
-    min-height: 100vh; /* Full screen height */
+    min-height: 100vh;
 }
 
-/* === Main Content Container === */
 .container {
     background-color: #fff;
     padding: 30px;
-    border-radius: 8px; /* Rounded corners */
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Subtle drop shadow */
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
     max-width: 700px;
     width: 100%;
 }
 
-/* === Headings Styling === */
+/* === Headings === */
 h1, h2, h3, h4 {
-    color: #2c3e50; /* Deep blue-gray for headings */
+    color: #2c3e50;
     text-align: center;
     margin-bottom: 20px;
 }
 
-/* === Input + Button Layout === */
- .input-section {
+/* === Input Section === */
+.input-section {
     display: flex;
-    gap: 10px; /* Space between input and button */
+    gap: 10px;
     margin-bottom: 25px;
+    flex-wrap: wrap;
 }
 
-#searchType{
-    border-radius: 5px;
-    border:  1px solid #D3D3D3;
-    font-size: 15px;
-}
-
-
-/* === Text Input Styling === */
-input[type="text"] {
-    flex-grow: 1;
-    padding: 12px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    font-size: 1em;
-}
-
-/* === Button Styling === */
+#searchType,
+input[type="text"],
 button {
-    padding: 12px 25px;
-    background-color: #28a745; /* Green */
+    font-size: 1em;
+    border-radius: 5px;
+    padding: 12px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+input[type="text"], #searchType {
+    border: 1px solid #ddd;
+}
+
+button {
+    background-color: #28a745;
     color: white;
     border: none;
-    border-radius: 5px;
-    font-size: 1em;
+    transition: background-color 0.3s ease;
     cursor: pointer;
-    transition: background-color 0.3s ease; /* Smooth hover */
 }
 
 button:hover {
-    background-color: #218838; /* Darker green on hover */
+    background-color: #218838;
 }
 
 button:disabled {
-    background-color: #cccccc; /* Gray when disabled */
+    background-color: #cccccc;
     cursor: not-allowed;
 }
 
-/* === General Message Styling (error/loading/success) === */
+/* === Message Styling === */
 .message {
     text-align: center;
     margin-bottom: 15px;
@@ -80,29 +74,26 @@ button:disabled {
     border-radius: 5px;
 }
 
-/* === Error Message (Red Box) === */
 .message.error {
     background-color: #f8d7da;
     color: #721c24;
     border: 1px solid #f5c6cb;
 }
 
-/* === Loading Message (Green Box) === */
 .message.loading {
     background-color: #d4edda;
     color: #155724;
     border: 1px solid #c3e6cb;
 }
 
-/* === Product Info Section === */
+/* === Product Result Display === */
 .product-result {
     border-top: 1px solid #eee;
     padding-top: 20px;
     margin-top: 20px;
-    display: none; /* Hidden by default, shown after API response */
+    display: none;
 }
 
-/* === Product Image Styling === */
 .product-image {
     max-width: 150px;
     height: auto;
@@ -112,18 +103,16 @@ button:disabled {
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
-/* === Halal Status Text === */
 #halalStatusText {
     font-weight: bold;
     font-size: 1.2em;
 }
 
-/* === Status Color Codes === */
-.status-haram { color: #dc3545; }     /* Red for Haram */
-.status-mushbooh { color: #ffc107; }  /* Yellow/Orange for Doubtful */
-.status-halal { color: #28a745; }     /* Green for Halal */
+/* === Halal Status Color Codes === */
+.status-haram { color: #dc3545; }
+.status-mushbooh { color: #ffc107; }
+.status-halal { color: #28a745; }
 
-/* === Warning for Doubtful Ingredients === */
 .warning-text {
     color: #d64d00;
     font-weight: bold;
@@ -131,7 +120,6 @@ button:disabled {
     margin-top: 10px;
 }
 
-/* === Ingredients Box Styling === */
 .ingredients-box {
     background-color: #f9f9f9;
     border: 1px solid #eee;
@@ -141,15 +129,14 @@ button:disabled {
     font-size: 0.95em;
 }
 
-/* === Highlighted Words in Ingredients === */
 .ingredients-box span.highlight {
-    background-color: #ffeb3b; /* Bright yellow highlight */
+    background-color: #ffeb3b;
     font-weight: bold;
     padding: 2px 0;
     border-radius: 2px;
 }
 
-/* === Footer Disclaimer Styling === */
+/* === Disclaimer === */
 .disclaimer {
     font-size: 0.8em;
     color: #777;
@@ -157,4 +144,39 @@ button:disabled {
     border-top: 1px dashed #eee;
     padding-top: 15px;
     text-align: center;
+}
+
+/* === Screen Reader Only === */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+/* === Mobile Responsiveness === */
+@media (max-width: 600px) {
+    .input-section {
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .product-image {
+        max-width: 100px;
+    }
+
+    .ingredients-box,
+    .message,
+    .disclaimer {
+        font-size: 0.9em;
+    }
+
+    h1, h2, h3 {
+        font-size: 1.3em;
+    }
 }

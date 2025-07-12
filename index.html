@@ -1,56 +1,61 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Halal Ingredient Analyzer</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Halal Ingredient Analyzer</title>
+  <!-- Link to external stylesheet -->
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="container">
-        <!-- <h1>Halal Ingredient Analyzer</h1>
-        <div class="input-section">
-            <input type="text" id="barcodeInput" placeholder="Enter product barcode (e.g., 4001686301323)">
-            <button id="checkButton">Check Halal Status</button>
-        </div> -->
-            <h1><strong>بسم الله الرحمن الرحيم</strong></h1>
-            <h1>Halal Ingredient Analayzer</h1>
-            <div class ='input-section'>
-                
-                <select id="searchType">
-                    <option value="barcode">Search by Barcode</option>
-                    <option value="Product">Search By Product Name</option>
-                </select>
-                <input type="text" id="barcodeInput" placeholder="Enter barcode or product">
-                <button id="checkButton">Check Halal Status</button>
-                </div>
+  <div class="container">
+    <h1><strong>بسم الله الرحمن الرحيم</strong></h1>
+    <h1>Halal Ingredient Analyzer</h1>
 
-        <p id="errorMessage" class="message error"></p>
-        <p id="loadingMessage" class="message loading"></p>
+    <!-- User input section -->
+    <div class="input-section">
+      <label for="searchType" class="sr-only">Search Type</label>
+      <select id="searchType">
+        <option value="barcode">Search by Barcode</option>
+        <option value="Product">Search By Product Name</option>
+      </select>
 
-        <div id="productResult" class="product-result">
-            <h2 id="productName"></h2>
-            <img id="productImage" src="" alt="Product Image" class="product-image">
-            <p id="productBrand"></p>
+      <label for="barcodeInput" class="sr-only">Product Input</label>
+      <input type="text" id="barcodeInput" placeholder="Enter barcode or product" autocomplete="off" />
 
-            <h3>Halal Status: <span id="halalStatusText"></span></h3>
-            <p id="problematicIngredientsText" class="warning-text"></p>
-
-            <h4>Ingredients:</h4>
-            <div id="ingredientsText" class="ingredients-box"></div>
-
-            <h4 id="additivesTitle" style="display: none;">Additives (E-Numbers):</h4>
-            <p id="additivesText"></p>
-
-            <h4 id="labelsTitle" style="display: none;">Labels:</h4>
-            <p id="labelsText"></p>
-        </div>
-
-        <p class="disclaimer">
-            **Disclaimer:**  This application is developed by<strong> Absar Ahmad </strong> and provides an informational check based on publicly available Open Food Facts data and generally accepted Halal guidelines. While we strive for accuracy, this app is not a substitute for official Halal certification.
-        </p>
+      <button id="checkButton">Check Halal Status</button>
     </div>
 
-    <script src="script.js"></script>
+    <!-- Feedback messages -->
+    <p id="errorMessage" class="message error"></p>
+    <p id="loadingMessage" class="message loading"></p>
+
+    <!-- Display result -->
+    <div id="productResult" class="product-result">
+      <h2 id="productName"></h2>
+      <img id="productImage" src="" alt="Product Image" class="product-image" />
+      <p id="productBrand"></p>
+
+      <h3>Halal Status: <span id="halalStatusText" role="status"></span></h3>
+      <p id="problematicIngredientsText" class="warning-text"></p>
+
+      <h4>Ingredients:</h4>
+      <div id="ingredientsText" class="ingredients-box"></div>
+
+      <h4 id="additivesTitle" style="display: none;">Additives (E-Numbers):</h4>
+      <p id="additivesText"></p>
+
+      <h4 id="labelsTitle" style="display: none;">Labels:</h4>
+      <p id="labelsText"></p>
+    </div>
+
+    <!-- Footer disclaimer -->
+    <p class="disclaimer">
+      **Disclaimer:** This application is developed by <strong>Absar Ahmad</strong> and provides an informational check based on publicly available Open Food Facts data and generally accepted Halal guidelines. While we strive for accuracy, this app is not a substitute for official Halal certification.
+    </p>
+  </div>
+
+  <!-- External JavaScript file -->
+  <script src="script.js"></script>
 </body>
 </html>
