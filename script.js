@@ -1,6 +1,8 @@
 // ====== Element Selectors ======
 // These lines get references to HTML elements so we can change or use them in JavaScript
-const barcodeInput = document.querySelector('#barcodeInput');
+const barcodeInput = document.querySelector('#barcodeInput'); //input field
+const searchType = document.querySelector('#searchType'); //
+
 const checkButton = document.querySelector('#checkButton');
 const errorMessage = document.querySelector('#errorMessage');
 const loadingMessage = document.querySelector('#loadingMessage');
@@ -77,12 +79,19 @@ function highlightIngredients(text, keywords) {
             
   // // ====== Main Function: Fetch and Analyze Product ======
     function fetchProduct() {
-    let barcode = barcodeInput.value.trim();
-    if (!barcode) {
+    let query = barcodeInput.value.trim();
+    let type = searchType.value
+    if (!query) {
         displayMessage(errorMessage, 'Please enter a barcode.', 'error');
         return;
     }
-
+    if(type === 'barcode'){
+        fetchProductByBarcode(query)
+    }else{
+        fetchByProductName(query)
+    }
+}
+    function fetchProductByBarcode(barcode) {
     clearResults();
     displayMessage(errorMessage, '', 'error');
     displayMessage(loadingMessage, 'Searching for product...', 'loading');
@@ -212,6 +221,39 @@ function highlightIngredients(text, keywords) {
         })
         .finally(function() {
             // Hide loading and enable button again
+            displayMessage(loadingMessage, '', 'loading');
+            checkButton.disabled = false;
+        });
+}
+
+ function fetchByProductName(name) {
+    clearResults();
+    displayMessage(loadingMessage, 'Searching by product name...', 'loading');
+    checkButton.disabled = true;
+
+    let url = `https://world.openfoodfacts.org/cgi/search.pl?search_terms=${encodeURIComponent(name)}&json=true`;
+
+    fetch(url)
+        .then(res => res.json())
+        .then(data => {
+            if (!data.products || data.products.length === 0) {
+                displayMessage(errorMessage, 'No products found for that name.', 'error');
+                return;
+            }
+
+            // Pick first product result
+            const product = data.products[0];
+            if (product.code) {
+                fetchProductByBarcode(product.code); // Use your existing barcode logic
+            } else {
+                displayMessage(errorMessage, 'Could not find a valid barcode for the product.', 'error');
+            }
+        })
+        .catch(err => {
+            console.error(err);
+            displayMessage(errorMessage, 'Failed to fetch product data.', 'error');
+        })
+        .finally(() => {
             displayMessage(loadingMessage, '', 'loading');
             checkButton.disabled = false;
         });

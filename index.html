@@ -8,11 +8,22 @@
 </head>
 <body>
     <div class="container">
-        <h1>Halal Ingredient Analyzer</h1>
+        <!-- <h1>Halal Ingredient Analyzer</h1>
         <div class="input-section">
             <input type="text" id="barcodeInput" placeholder="Enter product barcode (e.g., 4001686301323)">
             <button id="checkButton">Check Halal Status</button>
-        </div>
+        </div> -->
+            <h1><strong>بسم الله الرحمن الرحيم</strong></h1>
+            <h1>Halal Ingredient Analayzer</h1>
+            <div class ='input-section'>
+                
+                <select id="searchType">
+                    <option value="barcode">Search by Barcode</option>
+                    <option value="Product">Search By Product Name</option>
+                </select>
+                <input type="text" id="barcodeInput" placeholder="Enter barcode or product">
+                <button id="checkButton">Check Halal Status</button>
+                </div>
 
         <p id="errorMessage" class="message error"></p>
         <p id="loadingMessage" class="message loading"></p>
@@ -36,7 +47,7 @@
         </div>
 
         <p class="disclaimer">
-            **Disclaimer:** This app provides an informational check based on Open Food Facts data and common Halal guidelines. It does not replace official Halal certification. Always verify with official sources and look for certified Halal logos on packaging for definitive assurance.
+            **Disclaimer:**  This application is developed by<strong> Absar Ahmad </strong> and provides an informational check based on publicly available Open Food Facts data and generally accepted Halal guidelines. While we strive for accuracy, this app is not a substitute for official Halal certification.
         </p>
     </div>
 
